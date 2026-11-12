@@ -1,120 +1,215 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SPIDBRICK | Streetwear Store</title>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-color: #0b0b0b;
-            --card-bg: #141414;
-            --text-color: #f3f3f3;
-            --accent-color: #ff2a2a;
-            --accent-hover: #e02424;
-            --border-color: #222;
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Tajawal', sans-serif; }
-        body { background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; }
-        header { background: rgba(11, 11, 11, 0.95); border-bottom: 1px solid var(--border-color); padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
-        .logo { font-weight: 900; font-size: 1.5rem; letter-spacing: 2px; color: var(--text-color); }
-        .logo span { color: var(--accent-color); }
-        .cart-btn { background: var(--card-bg); border: 1px solid var(--border-color); color: var(--text-color); padding: 8px 15px; border-radius: 8px; cursor: pointer; font-weight: 700; display: flex; align-items: center; gap: 8px; }
-        .hero { padding: 40px 20px; text-align: center; background: linear-gradient(180deg, #1a1a1a 0%, var(--bg-color) 100%); border-bottom: 1px solid var(--border-color); }
-        .hero h1 { font-size: 2.2rem; font-weight: 900; margin-bottom: 10px; }
-        .hero p { color: #888; font-size: 1rem; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 30px 20px; }
-        .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
-        .product-card { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; }
-        .product-img { width: 100%; height: 250px; background-color: #222; }
-        .product-img img { width: 100%; height: 100%; object-fit: cover; }
-        .product-info { padding: 20px; display: flex; flex-direction: column; flex-grow: 1; }
-        .product-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; }
-        .product-price { color: var(--accent-color); font-weight: 900; font-size: 1.1rem; margin-bottom: 15px; }
-        .btn { background-color: var(--accent-color); color: #fff; border: none; padding: 10px; border-radius: 8px; font-weight: 700; cursor: pointer; width: 100%; text-align: center; margin-top: auto; }
-        .modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); display: none; justify-content: center; align-items: center; z-index: 2000; }
-        .modal.active { display: flex; }
-        .modal-content { background: var(--card-bg); border: 1px solid var(--border-color); width: 90%; max-width: 500px; border-radius: 12px; padding: 25px; max-height: 80vh; overflow-y: auto; }
-        .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-        .close-btn { background: none; border: none; color: #888; font-size: 1.5rem; cursor: pointer; }
-        .cart-items { list-style: none; margin-bottom: 20px; }
-        .cart-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--border-color); }
-        .checkout-form input { width: 100%; padding: 12px; margin-bottom: 15px; background: var(--bg-color); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-color); }
-        footer { text-align: center; padding: 30px; border-top: 1px solid var(--border-color); color: #666; font-size: 0.9rem; margin-top: 50px; }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>SPIDBRICK — WEAR THE DARKNESS</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Ctext y='8' font-size='9'%3E🕷%3C/text%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#070709;--pu:#160B2B;--pu2:#2a1550;--si:#C0C0C8;--wh:#fff;--ac:#8b5cf6}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--si);font-family:Cairo,system-ui,sans-serif;line-height:1.6;padding-bottom:76px}
+h1,h2,h3{color:var(--wh);line-height:1.25}
+button,input,select,textarea{font:inherit;color:inherit}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
+header{position:sticky;top:0;z-index:20;background:rgba(7,7,9,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--pu2);display:flex;align-items:center;gap:8px;padding:8px 12px}
+.logo{cursor:pointer;flex:1;display:flex;align-items:center;gap:6px;font-family:UnifrakturCook,serif;font-size:1.7rem;color:var(--wh);letter-spacing:1px}
+.ib{background:var(--pu);border:1px solid var(--pu2);border-radius:10px;min-width:40px;height:40px;cursor:pointer;display:grid;place-items:center;position:relative;font-weight:700}
+.dot{position:absolute;top:-6px;inset-inline-start:-6px;background:var(--ac);color:#fff;border-radius:9px;font-size:.7rem;padding:0 6px}
+#sb{display:none;padding:8px 12px;background:var(--bg)}#sb.on{display:block}
+input,select,textarea{width:100%;background:var(--pu);border:1px solid var(--pu2);border-radius:10px;padding:10px 12px}
+main{max-width:980px;margin:auto;padding:12px}
+.hero{border-radius:16px;padding:34px 18px;text-align:center;background:radial-gradient(circle at 50% 0,var(--pu2),var(--pu) 55%,var(--bg));border:1px solid var(--pu2);position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:0;opacity:.18;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-50 -50 100 100'%3E%3Cg stroke='%23C0C0C8' fill='none' stroke-width='.4'%3E%3Cpath d='M0 0L50 0M0 0L35 35M0 0L0 50M0 0L-35 35M0 0L-50 0M0 0L-35 -35M0 0L0 -50M0 0L35 -35'/%3E%3Ccircle r='12'/%3E%3Ccircle r='24'/%3E%3Ccircle r='38'/%3E%3C/g%3E%3C/svg%3E") center/cover}
+.hero>*{position:relative}
+.hero h1{font-family:UnifrakturCook,serif;font-size:2.6rem;letter-spacing:2px}
+.hero p{margin:6px 0 16px;letter-spacing:3px;font-size:.85rem}
+.btn{background:var(--ac);color:#fff;border:0;border-radius:10px;padding:11px 20px;font-weight:700;cursor:pointer;display:inline-block;text-decoration:none}
+.btn.ghost{background:transparent;border:1px solid var(--si)}
+.btn.sm{padding:6px 12px;font-size:.85rem;width:100%}
+.btn.full{width:100%;margin-top:10px}
+.sec{margin:22px 0 10px;display:flex;justify-content:space-between;align-items:center}
+.pills{display:flex;gap:8px;overflow-x:auto;padding:4px 0}
+.pill{white-space:nowrap;background:var(--pu);border:1px solid var(--pu2);border-radius:20px;padding:5px 14px;cursor:pointer}
+.pill.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(min-width:700px){.grid{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--pu);border:1px solid var(--pu2);border-radius:12px;overflow:hidden;cursor:pointer;position:relative;transition:transform .15s,border-color .15s}
+.card:hover{transform:translateY(-3px);border-color:var(--ac)}
+.card img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;background:var(--pu)}
+.ci{padding:8px 10px 10px}.ci h3{font-size:.95rem}
+.pr{color:var(--wh);font-weight:700}.pr s{color:#888;font-weight:400;font-size:.8rem}
+.sz{font-size:.7rem;color:#8a8a96;margin:2px 0 6px;letter-spacing:2px}
+.badge{position:absolute;top:8px;inset-inline-start:8px;background:#e11d48;color:#fff;border-radius:6px;padding:0 7px;font-size:.8rem;z-index:2}
+.promo{margin:22px 0;padding:22px;border-radius:14px;background:linear-gradient(120deg,var(--pu2),var(--pu));border:1px solid var(--ac);text-align:center}
+.box{background:var(--pu);border:1px solid var(--pu2);border-radius:12px;padding:14px;margin-bottom:12px}
+.row{display:flex;justify-content:space-between;gap:10px;padding:4px 0}
+.tot{color:var(--wh);font-weight:900;font-size:1.1rem;border-top:1px solid var(--pu2);margin-top:6px;padding-top:8px}
+.pd{display:grid;gap:14px}@media(min-width:700px){.pd{grid-template-columns:1fr 1fr}}
+.pd .main{width:100%;border-radius:12px;aspect-ratio:4/5;object-fit:cover}
+.th{display:flex;gap:8px;margin-top:8px}.th img{width:64px;height:64px;object-fit:cover;border-radius:8px;cursor:pointer;border:1px solid var(--pu2)}
+.opt{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 12px}
+.opt button{background:var(--pu);border:1px solid var(--pu2);border-radius:8px;padding:5px 14px;cursor:pointer}
+.opt button.on{background:var(--ac);color:#fff}
+.ci2{display:flex;gap:10px;align-items:center}.ci2 img{width:70px;height:88px;object-fit:cover;border-radius:8px}
+.q{display:flex;align-items:center;gap:8px}.q button{width:28px;height:28px;border-radius:8px;border:1px solid var(--pu2);background:var(--bg);cursor:pointer}
+label{display:block;margin:10px 0 4px;color:var(--wh);font-size:.9rem}
+.err{color:#fb7185;font-size:.8rem;min-height:1em}
+table{width:100%;border-collapse:collapse;text-align:center}th,td{border:1px solid var(--pu2);padding:8px}th{background:var(--pu2);color:#fff}
+details{background:var(--pu);border:1px solid var(--pu2);border-radius:10px;padding:10px 14px;margin-bottom:8px}summary{cursor:pointer;color:var(--wh);font-weight:700}
+nav{position:fixed;bottom:0;inset-inline:0;z-index:30;background:rgba(7,7,9,.96);border-top:1px solid var(--pu2);display:grid;grid-template-columns:repeat(4,1fr);padding:6px 0 max(6px,env(safe-area-inset-bottom))}
+nav button{background:none;border:0;cursor:pointer;display:grid;justify-items:center;font-size:.75rem;color:var(--si);position:relative}
+nav button.on{color:var(--wh)}nav svg{width:22px;height:22px}
+.wa{position:fixed;inset-inline-end:14px;bottom:86px;z-index:25;width:52px;height:52px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 4px 14px #0008}
+footer{text-align:center;padding:24px 12px;font-size:.85rem;border-top:1px solid var(--pu2);margin-top:26px}
+footer a{margin:0 8px;cursor:pointer}
+#toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%);background:var(--wh);color:#000;padding:8px 18px;border-radius:20px;z-index:50;display:none;font-weight:700}
+.warn{background:#3b1020;border:1px solid #e11d48;border-radius:10px;padding:10px;margin-bottom:12px;color:#fecdd3}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
 </head>
 <body>
-    <header>
-        <div class="logo">SPID<span>BRICK</span></div>
-        <button class="cart-btn" onclick="toggleCart()">🛒 السلة (<span id="cart-count">0</span>)</button>
-    </header>
-    <div class="hero">
-        <h1>SPIDBRICK STREETWEAR</h1>
-        <p>تصاميم عصرية، جودة عالية، وتوصيل لكافة الولايات.</p>
-    </div>
-    <div class="container">
-        <div class="products-grid" id="products-grid"></div>
-    </div>
-    <div class="modal" id="cart-modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>سلة المشتريات</h2>
-                <button class="close-btn" onclick="toggleCart()">&times;</button>
-            </div>
-            <ul class="cart-items" id="cart-items"></ul>
-            <div id="cart-total" style="font-weight: 900; font-size: 1.2rem; margin-bottom: 20px;">المجموع: 0 دج</div>
-            <div class="checkout-form">
-                <input type="text" id="cust-name" placeholder="الاسم الكامل">
-                <input type="text" id="cust-phone" placeholder="رقم الهاتف">
-                <input type="text" id="cust-address" placeholder="الولاية / العنوان">
-                <button class="btn" onclick="checkoutWhatsApp()">إتمام الطلب عبر واتساب 📲</button>
-            </div>
-        </div>
-    </div>
-    <footer>&copy; 2026 SPIDBRICK. جميع الحقوق محفوظة.</footer>
-    <script>
-        const products = [
-            { id: 1, name: "Spider Denim Jacket", price: 8500, image: "https://images.unsplash.com/photo-1543076447-215ad9ba6923?auto=format&fit=crop&w=600&q=80" },
-            { id: 2, name: "Lightning Cargo Pants", price: 6500, image: "https://images.unsplash.com/photo-1517445312882-bc9910d016b7?auto=format&fit=crop&w=600&q=80" },
-            { id: 3, name: "Dark Web Hoodie", price: 5500, image: "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=600&q=80" }
-        ];
-        let cart = [];
-        function renderProducts() {
-            document.getElementById('products-grid').innerHTML = products.map(p => `
-                <div class="product-card">
-                    <div class="product-img"><img src="${p.image}" alt="${p.name}"></div>
-                    <div class="product-info">
-                        <div class="product-title">${p.name}</div>
-                        <div class="product-price">${p.price.toLocaleString()} دج</div>
-                        <button class="btn" onclick="addToCart(${p.id})">إضافة للسلة</button>
-                    </div>
-                </div>
-            `).join('');
-        }
-        function toggleCart() { document.getElementById('cart-modal').classList.toggle('active'); }
-        function addToCart(id) { cart.push(products.find(p => p.id === id)); updateCart(); }
-        function updateCart() {
-            document.getElementById('cart-count').innerText = cart.length;
-            const list = document.getElementById('cart-items');
-            if(cart.length === 0) { list.innerHTML = '<p style="color:#666; text-align:center;">السلة فارغة</p>'; document.getElementById('cart-total').innerText = 'المجموع: 0 دج'; return; }
-            let total = 0;
-            list.innerHTML = cart.map((item, i) => {
-                total += item.price;
-                return `<li class="cart-item"><span>${item.name}</span><span>${item.price.toLocaleString()} دج</span><button onclick="removeFromCart(${i})" style="background:none; border:none; color:var(--accent-color); cursor:pointer;">❌</button></li>`;
-            }).join('');
-            document.getElementById('cart-total').innerText = `المجموع: ${total.toLocaleString()} دج`;
-        }
-        function removeFromCart(i) { cart.splice(i, 1); updateCart(); }
-        function checkoutWhatsApp() {
-            const name = document.getElementById('cust-name').value, phone = document.getElementById('cust-phone').value, address = document.getElementById('cust-address').value;
-            if(!name || !phone || !address || cart.length === 0) { alert('الرجاء ملء جميع المعلومات وإضافة منتجات!'); return; }
-            let msg = `🛒 طلب جديد من SPIDBRICK:\n👤 الاسم: ${name}\n📞 الهاتف: ${phone}\n📍 العنوان: ${address}\n\nالمنتجات:\n`;
-            let total = 0;
-            cart.forEach(item => { msg += `- ${item.name} (${item.price.toLocaleString()} دج)\n`; total += item.price; });
-            msg += `\n💰 المجموع: ${total.toLocaleString()} دج`;
-            window.open(`https://wa.me/213000000000?text=${encodeURIComponent(msg)}`, '_blank');
-        }
-        renderProducts();
-    </script>
+<header>
+ <div class="logo" onclick="go('home')" role="button" aria-label="SPIDBRICK">
+  <svg width="30" height="30" viewBox="0 0 40 40" fill="none" stroke="#C0C0C8" stroke-width="2" stroke-linecap="round"><ellipse cx="20" cy="22" rx="6" ry="8" fill="#8b5cf6"/><circle cx="20" cy="12" r="4" fill="#C0C0C8"/><path d="M14 18L3 10M14 22L2 22M14 26L4 36M26 18L37 10M26 22L38 22M26 26L36 36"/></svg>
+  <span>Spidbrick</span></div>
+ <button class="ib" onclick="$('sb').classList.toggle('on');$('q').focus()" aria-label="search">🔍</button>
+ <button class="ib" id="lg" onclick="setLang()"></button>
+</header>
+<div id="sb"><input id="q" oninput="Q=this.value;go('shop')"></div>
+<main id="app"></main>
+<footer><div style="font-family:UnifrakturCook,serif;font-size:1.4rem;color:#fff">Spidbrick</div><div id="fl"></div><div style="margin-top:8px"><a onclick="go('size')" id="f1"></a><a onclick="go('faq')" id="f2"></a><a onclick="go('about')" id="f3"></a><a onclick="go('contact')" id="f4"></a><a onclick="go('admin')" id="f5" style="opacity:.5"></a></div><div style="margin-top:8px">© SPIDBRICK</div></footer>
+<a class="wa" id="wab" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.300 1.200-1.800 1.200-.5.1-1 .2-3.200-.7-2.700-1.100-4.400-3.800-4.500-4-.1-.2-1.100-1.400-1.100-2.700s.7-1.900.9-2.200c.2-.2.500-.3.700-.3h.5c.2 0 .4 0 .6.500l.8 2c.1.200.1.400 0 .5l-.4.600c-.1.200-.3.300-.1.600.7 1.100 1.500 1.800 2.600 2.400.3.200.5.100.6-.1l.8-1c.2-.2.400-.2.600-.1l1.900.9c.2.100.4.200.4.300.1.200.1.700-.2 1.300z"/></svg></a>
+<nav id="nv"></nav>
+<div id="toast"></div>
+<script>
+/* ====== CONFIG: change the WhatsApp number (international format, no +) and Instagram link ====== */
+const WA='213550000000',IG='https://instagram.com/spidbrick';
+const $=id=>document.getElementById(id);
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const FB="data:image/svg+xml,"+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500"><rect width="400" height="500" fill="#160B2B"/><path d="M0 0L400 500M400 0L0 500M200 0V500M0 250H400" stroke="#2a1550" fill="none"/><text x="200" y="260" fill="#C0C0C8" font-size="30" text-anchor="middle" font-family="serif">SPIDBRICK</text></svg>');
+const U=i=>'https://images.unsplash.com/photo-'+i+'?auto=format&fit=crop&w=800&q=80';
+const img=(s,c)=>'<img src="'+esc(s)+'" alt="" loading="lazy" class="'+(c||'')+'" onerror="this.onerror=null;this.src=FB">';
+const ld=(k,d)=>{try{const v=JSON.parse(localStorage.getItem(k));return v==null?d:v}catch(e){return d}};
+const sv=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
+const DEF=[
+{id:1,name:'Phantom Web Heavyweight Hoodie',cat:'hoodies',price:5900,old:7400,stock:20,imgs:[U('1556821840-3a63f95609a7'),U('1578768079052-aa76e52ff62e')],colors:['Black','Purple'],desc:{ar:'هودي أوفرسايز ثقيل 450غ، قطن فرنسي ناعم، طباعة شبكة العنكبوت على الظهر.',fr:'Hoodie oversize heavyweight 450g, coton épais, print toile d\'araignée dans le dos.'}},
+{id:2,name:'Venom Oversized Hoodie',cat:'hoodies',price:6400,old:0,stock:12,imgs:[U('1578768079052-aa76e52ff62e'),U('1556821840-3a63f95609a7')],colors:['Black','Silver'],desc:{ar:'هودي واسع بقصة منخفضة الأكتاف وتطريز فضي.',fr:'Hoodie ample, épaules tombantes et broderie argentée.'}},
+{id:3,name:'Spider Graphic Baggy Jeans',cat:'jeans',price:7800,old:9800,stock:15,imgs:[U('1542272604-787c3835535d'),U('1541099649105-f69ad21f3246')],colors:['Washed Black','Grey'],desc:{ar:'جينز بقصة واسعة مع رسمة عنكبوت على الفخذ.',fr:'Jean baggy avec graphique araignée sur la cuisse.'}},
+{id:4,name:'Gothic Zip-Up Jacket',cat:'jackets',price:9500,old:11900,stock:8,imgs:[U('1551028719-00167b16eac5'),U('1521223890158-f9f7c3d5d504')],colors:['Black'],desc:{ar:'جاكيت بسحاب كامل وياقة عالية وتفاصيل قوطية.',fr:'Veste zippée, col montant et détails gothiques.'}},
+{id:5,name:'Night Cargo Pants',cat:'cargos',price:6900,old:0,stock:18,imgs:[U('1604176354204-9268737828e4'),U('1624378439575-d8705ad7ae80')],colors:['Black','Olive'],desc:{ar:'بنطلون كارغو بجيوب جانبية وخصر قابل للتعديل.',fr:'Pantalon cargo, poches latérales, taille ajustable.'}},
+{id:6,name:'Shadow Utility Cargo',cat:'cargos',price:7200,old:8400,stock:0,imgs:[U('1624378439575-d8705ad7ae80'),U('1604176354204-9268737828e4')],colors:['Charcoal'],desc:{ar:'كارغو يوتيليتي بقصة مستقيمة وقماش مقاوم.',fr:'Cargo utilitaire coupe droite, tissu résistant.'}}];
+const CATS=['hoodies','jeans','jackets','cargos'];
+const WIL="Adrar,Chlef,Laghouat,Oum El Bouaghi,Batna,Béjaïa,Biskra,Béchar,Blida,Bouira,Tamanrasset,Tébessa,Tlemcen,Tiaret,Tizi Ouzou,Alger,Djelfa,Jijel,Sétif,Saïda,Skikda,Sidi Bel Abbès,Annaba,Guelma,Constantine,Médéa,Mostaganem,M'Sila,Mascara,Ouargla,Oran,El Bayadh,Illizi,Bordj Bou Arréridj,Boumerdès,El Tarf,Tindouf,Tissemsilt,El Oued,Khenchela,Souk Ahras,Tipaza,Mila,Aïn Defla,Naâma,Aïn Témouchent,Ghardaïa,Relizane,El M'Ghair,El Meniaa,Ouled Djellal,Bordj Badji Mokhtar,Béni Abbès,Timimoun,Touggourt,Djanet,In Salah,In Guezzam".split(',');
+const SOUTH=[1,8,11,30,32,33,37,39,45,47,49,50,51,52,53,54,55,56,57,58];
+const fee=n=>n==16||n==19?600:SOUTH.includes(n)?1000:800;
+const T={ar:{home:'الرئيسية',cats:'الفئات',shop:'المنتجات',cart:'السلة',s:'ابحث عن منتج...',add:'أضف للسلة',all:'الكل',nw:'وصل حديثاً',bs:'الأكثر مبيعاً',slogan:'WEAR THE DARKNESS',hs:'تسوّق الآن',fc:'المجموعة المميزة',fcd:'هوديات ثقيلة وجينز واسع وجاكيتات قوطية',promo:'توصيل لـ 58 ولاية — الدفع عند الاستلام',ig:'تابعنا على إنستغرام',cur:'د.ج',hoodies:'هوديات',jeans:'جينز',jackets:'جاكيتات',cargos:'كارغو',newest:'الأحدث',pa:'السعر: الأقل',pd:'السعر: الأعلى',size:'المقاس',color:'اللون',ins:'متوفر',out:'نفد المخزون',empty:'السلة فارغة',back:'رجوع',sub:'المجموع الفرعي',fee:'رسوم التوصيل',total:'الإجمالي',co:'إتمام الطلب',cod:'الدفع عند الاستلام',name:'الاسم الكامل',phone:'رقم الهاتف',wil:'الولاية',pick:'اختر الولاية',com:'البلدية / المدينة',addr:'العنوان الكامل',sum:'ملخص الطلب',submit:'تأكيد الطلب عبر واتساب',e_name:'أدخل اسمك الكامل',e_phone:'رقم جزائري صحيح يبدأ بـ 05 أو 06 أو 07',e_wil:'اختر الولاية',e_com:'أدخل البلدية',e_addr:'أدخل العنوان الكامل',thx:'تم تسجيل طلبك!',thxd:'إذا لم يفتح واتساب تلقائياً اضغط الزر لإرسال الطلب.',sendwa:'إرسال عبر واتساب',sg:'جدول المقاسات (سم)',faq:'الأسئلة الشائعة',about:'عن SPIDBRICK',contact:'اتصل بنا',admin:'إدارة المتجر',added:'تمت الإضافة للسلة',nores:'لا توجد نتائج',cm:['المقاس','الصدر','الطول','الكتف'],
+about_t:'SPIDBRICK علامة ملابس شارع جزائرية داكنة الروح. نصمّم قطعاً ثقيلة بقصّات واسعة لمن يلبس الظلام بفخر.',
+faqs:[['كم مدة التوصيل؟','من 2 إلى 5 أيام حسب الولاية.'],['كيف أدفع؟','الدفع نقداً عند الاستلام فقط.'],['هل يمكن التبديل؟','نعم خلال 3 أيام من الاستلام إذا كانت القطعة غير ملبوسة.'],['كيف أختار مقاسي؟','راجع جدول المقاسات، والقصّات واسعة (Oversized).']],
+ad_w:'تنبيه: التعديلات تُحفظ في هذا المتصفح فقط (localStorage) ولا تظهر لباقي الزبائن. هذه ليست قاعدة بيانات سحابية.',ad_new:'منتج جديد',save:'حفظ',del:'حذف',edit:'تعديل',cat:'الفئة',price:'السعر',old:'السعر القديم',stock:'المخزون',imgs:'روابط الصور (سطر لكل رابط)',desc:'الوصف',pname:'اسم المنتج',lbl:'الواتساب',cf:'تأكيد الحذف؟',saved:'تم الحفظ'},
+fr:{home:'Accueil',cats:'Catégories',shop:'Boutique',cart:'Panier',s:'Rechercher...',add:'Ajouter',all:'Tout',nw:'Nouveautés',bs:'Meilleures ventes',slogan:'WEAR THE DARKNESS',hs:'Acheter',fc:'Collection phare',fcd:'Hoodies lourds, jeans baggy et vestes gothiques',promo:'Livraison dans les 58 wilayas — paiement à la livraison',ig:'Suivez-nous sur Instagram',cur:'DZD',hoodies:'Hoodies',jeans:'Jeans',jackets:'Vestes',cargos:'Cargos',newest:'Nouveautés',pa:'Prix croissant',pd:'Prix décroissant',size:'Taille',color:'Couleur',ins:'En stock',out:'Rupture de stock',empty:'Panier vide',back:'Retour',sub:'Sous-total',fee:'Livraison',total:'Total',co:'Commander',cod:'Paiement à la livraison',name:'Nom complet',phone:'Téléphone',wil:'Wilaya',pick:'Choisir la wilaya',com:'Commune / Ville',addr:'Adresse complète',sum:'Récapitulatif',submit:'Confirmer via WhatsApp',e_name:'Entrez votre nom complet',e_phone:'Numéro algérien valide (05, 06 ou 07)',e_wil:'Choisissez la wilaya',e_com:'Entrez la commune',e_addr:'Entrez l\'adresse complète',thx:'Commande enregistrée !',thxd:'Si WhatsApp ne s\'ouvre pas, appuyez sur le bouton pour envoyer.',sendwa:'Envoyer par WhatsApp',sg:'Guide des tailles (cm)',faq:'FAQ',about:'À propos',contact:'Contact',admin:'Gestion boutique',added:'Ajouté au panier',nores:'Aucun résultat',noreS:'',cm:['Taille','Poitrine','Longueur','Épaule'],
+about_t:'SPIDBRICK est une marque algérienne de streetwear sombre. Des pièces lourdes, coupes amples, pour ceux qui portent l\'obscurité.',
+faqs:[['Délai de livraison ?','2 à 5 jours selon la wilaya.'],['Comment payer ?','Paiement en espèces à la livraison uniquement.'],['Échange possible ?','Oui, sous 3 jours si la pièce n\'est pas portée.'],['Quelle taille choisir ?','Voir le guide des tailles ; les coupes sont oversize.']],
+ad_w:'Attention : les modifications sont enregistrées uniquement dans ce navigateur (localStorage), pas dans une base de données partagée.',ad_new:'Nouveau produit',save:'Enregistrer',del:'Supprimer',edit:'Modifier',cat:'Catégorie',price:'Prix',old:'Ancien prix',stock:'Stock',imgs:'URLs des images (une par ligne)',desc:'Description',pname:'Nom du produit',lbl:'WhatsApp',cf:'Confirmer la suppression ?',saved:'Enregistré'}};
+let L=ld('sb_l','ar'),P=ld('sb_p',DEF),C=ld('sb_c',[]),V='home',A=null,Q='',CAT='all',SORT='new',IDX=0,EDIT=null;
+const t=k=>(T[L][k]!=null?T[L][k]:k);
+const fmt=n=>Number(n).toLocaleString('en-US')+' '+t('cur');
+const find=id=>P.find(p=>p.id==id);
+const disc=p=>p.old>p.price?Math.round(100-p.price/p.old*100):0;
+function toast(m){const e=$('toast');e.textContent=m;e.style.display='block';clearTimeout(toast.x);toast.x=setTimeout(()=>e.style.display='none',1800)}
+function setLang(){L=L=='ar'?'fr':'ar';sv('sb_l',L);chrome();render()}
+function go(v,a){V=v;A=a==null?null:a;IDX=0;if(v!='shop'&&v!='home')Q='';render();scrollTo(0,0)}
+function cats(){go('home');setTimeout(()=>$('cats')&&$('cats').scrollIntoView(),50)}
+function chrome(){
+ document.documentElement.lang=L;document.documentElement.dir=L=='ar'?'rtl':'ltr';
+ $('q').placeholder=t('s');$('lg').textContent=L=='ar'?'FR':'AR';
+ $('f1').textContent=t('sg');$('f2').textContent=t('faq');$('f3').textContent=t('about');$('f4').textContent=t('contact');$('f5').textContent=t('admin');
+ $('fl').innerHTML='<a href="'+IG+'" target="_blank" rel="noopener">Instagram</a><a href="https://wa.me/'+WA+'" target="_blank" rel="noopener">WhatsApp</a>';
+ $('wab').href='https://wa.me/'+WA;
+ const n=C.reduce((s,i)=>s+i.q,0),ic={
+ home:'<path d="M3 11l9-8 9 8v10h-6v-6H9v6H3z"/>',cats:'<path d="M3 3h8v8H3zM13 3h8v8h-8zM3 13h8v8H3zM13 13h8v8h-8z"/>',shop:'<path d="M5 3l-2 4v14h18V7l-2-4zM3 7h18"/>',cart:'<path d="M3 4h3l3 12h10l2-8H7"/><circle cx="10" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/>'};
+ $('nv').innerHTML=[['home','go("home")'],['cats','cats()'],['shop','go("shop")'],['cart','go("cart")']].map(([k,f])=>'<button class="'+(V==k?'on':'')+'" onclick=\''+f+'\'><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round">'+ic[k]+'</svg>'+t(k==='cats'?'cats':k)+(k=='cart'&&n?'<span class="dot">'+n+'</span>':'')+'</button>').join('');
+}
+const card=p=>'<div class="card" onclick="go(\'product\','+p.id+')">'+(disc(p)?'<b class="badge">-'+disc(p)+'%</b>':'')+img(p.imgs[0])+'<div class="ci"><h3>'+esc(p.name)+'</h3><div class="pr">'+fmt(p.price)+' '+(disc(p)?'<s>'+fmt(p.old)+'</s>':'')+'</div><div class="sz">S M L XL XXL</div><button class="btn sm" onclick="event.stopPropagation();quick('+p.id+')">'+(p.stock>0?t('add'):t('out'))+'</button></div></div>';
+function pills(){return '<div class="pills">'+['all'].concat(CATS).map(c=>'<span class="pill '+(CAT==c?'on':'')+'" onclick="CAT=\''+c+'\';go(\'shop\')">'+t(c)+'</span>').join('')+'</div>'}
+function addCart(id,size,color,q){const p=find(id);if(!p||p.stock<1){toast(t('out'));return false}
+ const k=id+'|'+size+'|'+color,e=C.find(i=>i.k==k);if(e)e.q+=q||1;else C.push({k,id,size,color,q:q||1});sv('sb_c',C);chrome();toast(t('added'));return true}
+function quick(id){const p=find(id);if(p)addCart(id,'M',p.colors[0]||'',1)}
+function render(){
+ const m=$('app');let h='';
+ if(V=='home'){
+  const nw=P.slice().reverse().slice(0,4),bs=P.filter(p=>disc(p)).slice(0,4);
+  h='<div class="hero"><h1>SPIDBRICK</h1><p>'+t('slogan')+'</p><input style="max-width:360px" placeholder="'+esc(t('s'))+'" oninput="Q=this.value;go(\'shop\')"><br><br><button class="btn" onclick="go(\'shop\')">'+t('hs')+'</button></div>'
+  +'<div class="box" style="margin-top:12px"><h2>'+t('fc')+'</h2><p>'+t('fcd')+'</p></div>'
+  +'<div id="cats" class="sec"><h2>'+t('cats')+'</h2></div>'+pills()
+  +'<div class="sec"><h2>'+t('nw')+'</h2></div><div class="grid">'+nw.map(card).join('')+'</div>'
+  +'<div class="promo"><h2>'+t('promo')+'</h2></div>'
+  +'<div class="sec"><h2>'+t('bs')+'</h2></div><div class="grid">'+bs.map(card).join('')+'</div>'
+  +'<p style="text-align:center;margin-top:20px"><a class="btn ghost" href="'+IG+'" target="_blank" rel="noopener">'+t('ig')+'</a></p>';
+ }else if(V=='shop'){
+  let l=P.filter(p=>(CAT=='all'||p.cat==CAT)&&(p.name+' '+p.cat).toLowerCase().includes(Q.toLowerCase()));
+  if(SORT=='pa')l.sort((a,b)=>a.price-b.price);else if(SORT=='pd')l.sort((a,b)=>b.price-a.price);else l.reverse();
+  h='<div class="sec"><h2>'+t('shop')+'</h2><select style="width:auto" onchange="SORT=this.value;render()">'+[['new','newest'],['pa','pa'],['pd','pd']].map(o=>'<option value="'+o[0]+'"'+(SORT==o[0]?' selected':'')+'>'+t(o[1])+'</option>').join('')+'</select></div>'+pills()+'<div class="grid" style="margin-top:10px">'+(l.map(card).join('')||'<p>'+t('nores')+'</p>')+'</div>';
+ }else if(V=='product'){
+  const p=find(A);if(!p){go('shop');return}
+  window.S=window.S&&window.S.id==p.id?window.S:{id:p.id,size:'M',color:p.colors[0]||''};
+  h='<button class="pill" onclick="go(\'shop\')">'+t('back')+'</button><div class="pd" style="margin-top:10px"><div>'+img(p.imgs[IDX]||p.imgs[0],'main')+'<div class="th">'+p.imgs.map((s,i)=>'<span onclick="IDX='+i+';render()">'+img(s)+'</span>').join('')+'</div></div><div><h1>'+esc(p.name)+'</h1><div class="pr" style="font-size:1.4rem">'+fmt(p.price)+' '+(disc(p)?'<s>'+fmt(p.old)+'</s> <b class="badge" style="position:static">-'+disc(p)+'%</b>':'')+'</div><p style="color:'+(p.stock>0?'#4ade80':'#fb7185')+'">'+(p.stock>0?t('ins')+' ('+p.stock+')':t('out'))+'</p><p>'+esc(p.desc[L]||p.desc.ar||p.desc)+'</p>'
+  +'<label>'+t('size')+'</label><div class="opt">'+['S','M','L','XL','XXL'].map(s=>'<button class="'+(S.size==s?'on':'')+'" onclick="S.size=\''+s+'\';render()">'+s+'</button>').join('')+'</div>'
+  +'<label>'+t('color')+'</label><div class="opt">'+p.colors.map((c,i)=>'<button class="'+(S.color==c?'on':'')+'" onclick="S.color=this.dataset.c;render()" data-c="'+esc(c)+'">'+esc(c)+'</button>').join('')+'</div>'
+  +'<button class="btn full" onclick="addCart('+p.id+',S.size,S.color,1)"'+(p.stock>0?'':' disabled style="opacity:.5"')+'>'+t('add')+'</button></div></div>';
+ }else if(V=='cart'){
+  h='<h2>'+t('cart')+'</h2>';
+  if(!C.length)h+='<div class="box">'+t('empty')+'</div><button class="btn" onclick="go(\'shop\')">'+t('shop')+'</button>';
+  else{const s=C.reduce((a,i)=>a+(find(i.id)?find(i.id).price*i.q:0),0);
+   h+=C.map((i,x)=>{const p=find(i.id);if(!p)return'';return '<div class="box ci2">'+img(p.imgs[0])+'<div style="flex:1"><h3>'+esc(p.name)+'</h3><small>'+t('size')+': '+i.size+' · '+esc(i.color)+'</small><div class="pr">'+fmt(p.price)+'</div><div class="q"><button onclick="qty('+x+',-1)">−</button>'+i.q+'<button onclick="qty('+x+',1)">+</button></div></div><button class="ib" onclick="qty('+x+',-99)" aria-label="remove">✕</button></div>'}).join('')
+   +'<div class="box"><div class="row tot"><span>'+t('sub')+'</span><span>'+fmt(s)+'</span></div></div><button class="btn full" onclick="go(\'checkout\')">'+t('co')+'</button>'}
+ }else if(V=='checkout'){
+  if(!C.length){go('cart');return}
+  const s=C.reduce((a,i)=>a+(find(i.id)?find(i.id).price*i.q:0),0);
+  h='<h2>'+t('co')+'</h2><p>'+t('cod')+'</p><div class="box"><label>'+t('name')+'</label><input id="cn" autocomplete="name"><div class="err" id="e1"></div><label>'+t('phone')+'</label><input id="cp" type="tel" inputmode="tel" placeholder="05XXXXXXXX" dir="ltr"><div class="err" id="e2"></div><label>'+t('wil')+'</label><select id="cw" onchange="upd()"><option value="">'+t('pick')+'</option>'+WIL.map((w,i)=>'<option value="'+(i+1)+'">'+(i+1)+' - '+w+'</option>').join('')+'</select><div class="err" id="e3"></div><label>'+t('com')+'</label><input id="cc"><div class="err" id="e4"></div><label>'+t('addr')+'</label><textarea id="ca" rows="2"></textarea><div class="err" id="e5"></div></div>'
+  +'<div class="box"><h3>'+t('sum')+'</h3>'+C.map(i=>{const p=find(i.id);return p?'<div class="row"><span>'+esc(p.name)+' ('+i.size+', '+esc(i.color)+') ×'+i.q+'</span><span>'+fmt(p.price*i.q)+'</span></div>':''}).join('')+'<div class="row"><span>'+t('sub')+'</span><span>'+fmt(s)+'</span></div><div class="row"><span>'+t('fee')+'</span><span id="fv">—</span></div><div class="row tot"><span>'+t('total')+'</span><span id="tv">'+fmt(s)+'</span></div></div><button class="btn full" onclick="order()">'+t('submit')+'</button>';
+ }else if(V=='confirm'){
+  h='<div class="box" style="text-align:center"><h1>✓ '+t('thx')+'</h1><p>'+t('thxd')+'</p><a class="btn full" target="_blank" rel="noopener" href="'+esc(A)+'">'+t('sendwa')+'</a><button class="btn ghost full" onclick="go(\'home\')">'+t('home')+'</button></div>';
+ }else if(V=='size'){
+  const c=t('cm');h='<h2>'+t('sg')+'</h2><div style="overflow-x:auto"><table><tr>'+c.map(x=>'<th>'+x+'</th>').join('')+'</tr>'+[['S',112,68,50],['M',118,70,52],['L',124,72,54],['XL',130,74,56],['XXL',136,76,58]].map(r=>'<tr>'+r.map(x=>'<td>'+x+'</td>').join('')+'</tr>').join('')+'</table></div>';
+ }else if(V=='faq'){h='<h2>'+t('faq')+'</h2>'+t('faqs').map(f=>'<details><summary>'+f[0]+'</summary><p>'+f[1]+'</p></details>').join('')
+ }else if(V=='about'){h='<h2>'+t('about')+'</h2><div class="box"><p>'+t('about_t')+'</p></div>'
+ }else if(V=='contact'){h='<h2>'+t('contact')+'</h2><div class="box"><p><a href="https://wa.me/'+WA+'" target="_blank" rel="noopener">WhatsApp: +'+WA+'</a></p><p><a href="'+IG+'" target="_blank" rel="noopener">Instagram</a></p></div>'
+ }else if(V=='admin'){
+  const e=EDIT==='new'?{id:0,name:'',cat:'hoodies',price:'',old:0,stock:10,imgs:[''],colors:['Black'],desc:{ar:'',fr:''}}:EDIT?find(EDIT):null;
+  h='<h2>'+t('admin')+'</h2><div class="warn">'+t('ad_w')+'</div><button class="btn" onclick="EDIT=\'new\';render()">+ '+t('ad_new')+'</button>';
+  if(e)h+='<div class="box" style="margin-top:12px"><label>'+t('pname')+'</label><input id="an" value="'+esc(e.name)+'"><label>'+t('cat')+'</label><select id="ac">'+CATS.map(c=>'<option value="'+c+'"'+(e.cat==c?' selected':'')+'>'+t(c)+'</option>').join('')+'</select><label>'+t('price')+' ('+t('cur')+')</label><input id="ap" type="number" value="'+esc(e.price)+'"><label>'+t('old')+'</label><input id="ao" type="number" value="'+esc(e.old)+'"><label>'+t('stock')+'</label><input id="as" type="number" value="'+esc(e.stock)+'"><label>'+t('imgs')+'</label><textarea id="ai" rows="3" dir="ltr">'+esc(e.imgs.join('\n'))+'</textarea><label>'+t('color')+' (a, b)</label><input id="ak" value="'+esc(e.colors.join(', '))+'"><label>'+t('desc')+'</label><textarea id="ad" rows="2">'+esc(e.desc[L]||e.desc.ar||'')+'</textarea><button class="btn full" onclick="saveP('+e.id+')">'+t('save')+'</button></div>';
+  h+=P.map(p=>'<div class="box ci2">'+img(p.imgs[0])+'<div style="flex:1"><h3>'+esc(p.name)+'</h3><div>'+fmt(p.price)+' · '+p.stock+'</div></div><button class="pill" onclick="EDIT='+p.id+';render()">'+t('edit')+'</button><button class="pill" onclick="delP('+p.id+')">'+t('del')+'</button></div>').join('');
+ }
+ m.innerHTML=h;chrome();
+}
+function qty(x,d){C[x].q+=d;if(C[x].q<1)C.splice(x,1);sv('sb_c',C);chrome();render()}
+function upd(){const w=+$('cw').value,s=C.reduce((a,i)=>a+(find(i.id)?find(i.id).price*i.q:0),0);$('fv').textContent=w?fmt(fee(w)):'—';$('tv').textContent=fmt(s+(w?fee(w):0))}
+function order(){
+ const n=$('cn').value.trim(),p=$('cp').value.replace(/[\s.-]/g,''),w=+$('cw').value,c=$('cc').value.trim(),a=$('ca').value.trim();
+ const er={e1:n.length<3?t('e_name'):'',e2:/^0[567]\d{8}$/.test(p)?'':t('e_phone'),e3:w?'':t('e_wil'),e4:c?'':t('e_com'),e5:a.length<5?t('e_addr'):''};
+ let bad=false;for(const k in er){$(k).textContent=er[k];if(er[k])bad=true}
+ if(bad){toast('!');return}
+ const s=C.reduce((x,i)=>x+(find(i.id)?find(i.id).price*i.q:0),0),f=fee(w),no='SB'+Date.now().toString().slice(-6);
+ const lines=C.map(i=>{const q=find(i.id);return '• '+q.name+' | '+i.size+' | '+i.color+' | x'+i.q+' = '+(q.price*i.q)+' DZD'}).join('\n');
+ const msg='🕷 SPIDBRICK — طلب جديد / Nouvelle commande #'+no+'\n\n'+lines+'\n\nالمجموع / Sous-total: '+s+' DZD\nالتوصيل / Livraison: '+f+' DZD\nالإجمالي / Total: '+(s+f)+' DZD\n\n👤 '+n+'\n📞 '+p+'\n📍 '+w+' - '+WIL[w-1]+' / '+c+'\n🏠 '+a+'\n💵 الدفع عند الاستلام / Paiement à la livraison';
+ const url='https://wa.me/'+WA+'?text='+encodeURIComponent(msg);
+ sv('sb_o',ld('sb_o',[]).concat([{no,n,p,w,c,a,total:s+f,date:new Date().toISOString()}]));
+ C=[];sv('sb_c',C);go('confirm',url);window.open(url,'_blank');
+}
+function saveP(id){
+ const price=+$('ap').value,name=$('an').value.trim();if(!name||!(price>0)){toast('!');return}
+ const old=P.find(x=>x.id==id),ds=$('ad').value.trim();
+ const d={id:id||Date.now(),name,cat:$('ac').value,price,old:+$('ao').value||0,stock:Math.max(0,+$('as').value||0),imgs:$('ai').value.split('\n').map(x=>x.trim()).filter(Boolean),colors:$('ak').value.split(',').map(x=>x.trim()).filter(Boolean),desc:Object.assign({},old&&old.desc,{[L]:ds})};
+ if(!d.imgs.length)d.imgs=[FB];if(!d.colors.length)d.colors=['Black'];
+ if(id)P=P.map(x=>x.id==id?d:x);else P.push(d);
+ sv('sb_p',P);EDIT=null;toast(t('saved'));render();
+}
+function delP(id){if(confirm(t('cf'))){P=P.filter(x=>x.id!=id);C=C.filter(i=>i.id!=id);sv('sb_p',P);sv('sb_c',C);render()}}
+chrome();render();
+</script>
 </body>
 </html>
